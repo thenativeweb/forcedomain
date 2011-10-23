@@ -21,4 +21,4 @@ That's it :-)!
 
 ## Copyright
 
-(c) Copyright 2011 [Golo Roden](http://www.goloroden.de) ([webmaster@goloroden.de]webmaster@goloroden.de)
+(c) Copyright 2011 [Golo Roden](http://www.goloroden.de), contact using webmaster@goloroden.de
