@@ -1,7 +1,7 @@
 {
   "name": "node-force-domain",
-  "version": "0.0.1",
-  "main": "./index",
+  "version": "0.0.2",
+  "main": "./lib/redirectTo.js",
   "description": "node-force-domain is a middleware for Express.js that allows you to configure a default domain and redirect any requests to other domains.",
   "author": "Golo Roden <webmaster@goloroden.de> (http://www.goloroden.de)",
   "repository": {
