@@ -13,9 +13,7 @@ Using node-force-domain is easy:
 **use() it within Express.js**
 
     ```javascript
-
-        // Insert before all other calls to app.use().
-        app.use(require('node-force-domain').redirectTo('www.example.com'));
-
+    // Insert before all other calls to app.use().
+    app.use(require('node-force-domain').redirectTo('www.example.com'));
     ```
 That's it :-)!
