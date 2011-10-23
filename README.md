@@ -8,9 +8,7 @@ node-force-domain is a middleware for the Express.js framework that allows you t
 
 ## Quick Start
 
-Using node-force-domain is easy. All you need to do is to register it within Express.js as middleware.
-
-Therefore, simply add the following line into your app.js file before all other calls to app.use(...):
+Using node-force-domain is easy. All you need to do is to register it within Express.js as middleware. Therefore, simply add the following line into your app.js file before all other calls to app.use(...):
 
 ```javascript
 app.use(require('node-force-domain').redirectTo('www.example.com'));
