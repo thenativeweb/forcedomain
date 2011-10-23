@@ -14,9 +14,10 @@ Using node-force-domain is easy:
 
 Simply add the following line before all other calls to app.use(...):
 
-    ```javascript
-    app.use(require('node-force-domain').redirectTo('www.example.com'));
-    ```
+```javascript
+app.use(require('node-force-domain').redirectTo('www.example.com'));
+```
+
 That's it :-)!
 
 ## Copyright
