@@ -18,3 +18,7 @@ Simply add the following line before all other calls to app.use(...):
     app.use(require('node-force-domain').redirectTo('www.example.com'));
     ```
 That's it :-)!
+
+## Copyright
+
+(c) Copyright 2011 [Golo Roden](http://www.goloroden.de) ([webmaster@goloroden.de]webmaster@goloroden.de)
