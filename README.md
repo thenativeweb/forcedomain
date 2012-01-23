@@ -11,13 +11,13 @@ node-force-domain is a middleware for the Express.js framework that allows you t
 Using node-force-domain is easy. All you need to do is to register it within Express.js as middleware. Therefore, simply add the following line into your app.js file before all other calls to app.use(...):
 
 ```javascript
-app.use(require('node-force-domain').redirectTo('www.example.com'));
+app.use(require('node-force-domain').redirect('www.example.com'));
 ```
 
 By default, a 301 (permanent) redirect is used, and any path / query string data is cleared. If you want to change this behavior, feel free to provide a configuration object:
 
 ```javascript
-app.use(require('node-force-domain').redirectTo('www.example.com', {
+app.use(require('node-force-domain').redirect('www.example.com', {
   type: 'permanent', // 'temporary' === 307
   cutPath: true
 }));
