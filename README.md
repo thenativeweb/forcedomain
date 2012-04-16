@@ -23,7 +23,19 @@ app.use(require('node-force-domain').redirect('www.example.com', {
 }));
 ```
 
-Please note that localhost is being excluded from the redirection rule. Hence you can continue developing locally as you are used to.
+If you are running your Node.js based web application behind a reverse proxy such as Nginx, you have to forward the originally requested host:
+
+    server {
+      // ...
+
+      location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $http_host;
+      }
+    }
+
+
+Please note that localhost is always being excluded from the redirection rule. Hence you can continue developing locally as you are used to.
 
 That's it :-)!
 
