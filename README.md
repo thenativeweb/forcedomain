@@ -1,6 +1,6 @@
 # node-force-domain
 
-node-force-domain is a middleware for the Express.js framework that allows you to have multiple domains, but forces them to redirect to a default one.
+node-force-domain is a middleware for the Connect and / or Express.js framework that allows you to have multiple domains, but forces them to redirect to a default one.
 
 ## Installation
 
