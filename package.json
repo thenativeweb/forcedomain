@@ -1,7 +1,7 @@
 {
   "name": "node-force-domain",
   "version": "0.1.0",
-  "description": "is a middleware for Connect and Epxpress that redirects any requests to a default domain.",
+  "description": "node-force-domain is a middleware for Connect and Epxpress that redirects any requests to a default domain.",
   "author": "Golo Roden <golo.roden@thenativeweb.io> (http://www.thenativeweb.io)",
   "main": "lib/node-force-domain.js",
   "dependencies": {
