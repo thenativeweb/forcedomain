@@ -53,7 +53,7 @@ suite('node-force-domain', function () {
         .end(function (err, res) {
           assert.that(err, is.null());
           assert.that(res.statusCode, is.equalTo(307));
-          assert.that(res.header.location, is.equalTo('http://www.example.com:80/'));
+          assert.that(res.header.location, is.equalTo('http://www.example.com/'));
           res.resume();
           done();
         });
@@ -238,7 +238,7 @@ suite('node-force-domain', function () {
         .end(function (err, res) {
           assert.that(err, is.null());
           assert.that(res.statusCode, is.equalTo(301));
-          assert.that(res.header.location, is.equalTo('http://www.example.com:80/'));
+          assert.that(res.header.location, is.equalTo('http://www.example.com/'));
           res.resume();
           done();
         });

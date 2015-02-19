@@ -7,7 +7,7 @@ var redirect = require('../lib/redirect');
 suite('redirect', function () {
   suite('returns undefined', function () {
     test('for localhost.', function () {
-      assert.that(redirect('localhost', '/foo/bar', {
+      assert.that(redirect('http', 'localhost', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         port: 4000
@@ -15,7 +15,7 @@ suite('redirect', function () {
     });
 
     test('for localhost:3000.', function () {
-      assert.that(redirect('localhost:3000', '/foo/bar', {
+      assert.that(redirect('http', 'localhost:3000', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         port: 4000
@@ -23,7 +23,7 @@ suite('redirect', function () {
     });
 
     test('for the forced domain with the correct port.', function () {
-      assert.that(redirect('www.thenativeweb.io:4000', '/foo/bar', {
+      assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000
       }), is.undefined());
@@ -32,7 +32,7 @@ suite('redirect', function () {
 
   suite('returns a temporary redirect', function () {
     test('for the forced domain with another port.', function () {
-      assert.that(redirect('www.thenativeweb.io:3000', '/foo/bar', {
+      assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000
       }), is.equalTo({
@@ -42,7 +42,7 @@ suite('redirect', function () {
     });
 
     test('for another domain with the correct port.', function () {
-      assert.that(redirect('thenativeweb.io:4000', '/foo/bar', {
+      assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000
       }), is.equalTo({
@@ -52,7 +52,7 @@ suite('redirect', function () {
     });
 
     test('for another domain with another port.', function () {
-      assert.that(redirect('thenativeweb.io:3000', '/foo/bar', {
+      assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000
       }), is.equalTo({
@@ -64,7 +64,7 @@ suite('redirect', function () {
 
   suite('returns a permanent redirect', function () {
     test('for the forced domain with another port.', function () {
-      assert.that(redirect('www.thenativeweb.io:3000', '/foo/bar', {
+      assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000,
         type: 'permanent'
@@ -75,7 +75,7 @@ suite('redirect', function () {
     });
 
     test('for another domain with the correct port.', function () {
-      assert.that(redirect('thenativeweb.io:4000', '/foo/bar', {
+      assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000,
         type: 'permanent'
@@ -86,7 +86,7 @@ suite('redirect', function () {
     });
 
     test('for another domain with another port.', function () {
-      assert.that(redirect('thenativeweb.io:3000', '/foo/bar', {
+      assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000,
         type: 'permanent'
