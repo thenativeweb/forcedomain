@@ -158,11 +158,11 @@ suite('node-force-domain', function () {
     test('redirects on correct host and port, but other protocol.', function (done) {
       request(app)
         .get('/')
-        .set('protocol', 'http')
         .set('host', 'www.example.com:4000')
         .end(function (err, res) {
           assert.that(err, is.null());
           assert.that(res.statusCode, is.equalTo(307));
+          assert.that(res.header.location, is.equalTo('https://www.example.com:4000/'));
           res.resume();
           done();
         });
@@ -210,7 +210,6 @@ suite('node-force-domain', function () {
     test('does not redirect on correct protocol and host.', function (done) {
       request(appHttps)
         .get('/')
-        .set('protocol', 'https')
         .set('host', 'www.example.com')
         .end(function (err, res) {
           assert.that(err, is.null());
