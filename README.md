@@ -1,6 +1,6 @@
 # forcedomain
 
-forcedomain is a middleware for Connect and Express that redirects any request to a default domain.
+forcedomain is a middleware for Connect and Express that redirects any request to a default domain, e.g. to redirect to either the www or the non-www version of a domain.
 
 ## Installation
 
@@ -14,7 +14,7 @@ The first thing you need to do is to integrate forcedomain into your application
 var forceDomain = require('forcedomain');
 ```
 
-If you now want to redirect your requests to a specific host, include the middleware and configure it accordingly:
+If you now want to redirect your requests to a specific host, include the middleware and configure it accordingly.
 
 ```javascript
 app.use(forceDomain({
@@ -22,7 +22,7 @@ app.use(forceDomain({
 }));
 ```
 
-Additionally, you can also specify a port and a target protocol:
+Additionally, you can also specify a port and a target protocol.
 
 ```javascript
 app.use(forceDomain({
@@ -32,20 +32,22 @@ app.use(forceDomain({
 }));
 ```
 
-By default, forcedomain creates a `temporary` request. If you want to use a `permanent` redirect instead, specify it as redirection type:
+By default, forcedomain redirects using `permanent` request. This is generally considered best practice with respect to SEO, as it tells search engines that there is a single long-term canonical address for a ressource.
+
+If you want to use a `temporary` redirect instead, specify it as redirection type.
 
 ```javascript
 app.use(forceDomain({
   hostname: 'www.example.com',
-  type: 'permanent'
+  type: 'temporary'
 }));
 ```
 
-Please note that `localhost` is always being excluded from redirection. Hence you can continue developing locally as you are used to.
+*Please note that `localhost` is always being excluded from redirection. Hence you can continue developing locally as you are used to.*
 
 ### Using a reverse-proxy
 
-If you are running your web application behind a reverse proxy such as Nginx, you have to forward the originally requested host:
+If you are running your web application behind a reverse proxy such as Nginx, you have to forward the originally requested host.
 
     server {
       // ...

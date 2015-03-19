@@ -5,13 +5,13 @@ var assert = require('assertthat');
 var redirect = require('../lib/redirect');
 
 suite('redirect', function () {
-  suite('returns undefined', function () {
+  suite('returns null', function () {
     test('for localhost.', function (done) {
       assert.that(redirect('http', 'localhost', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         port: 4000
-      })).is.undefined();
+      })).is.null();
       done();
     });
 
@@ -20,7 +20,7 @@ suite('redirect', function () {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         port: 4000
-      })).is.undefined();
+      })).is.null();
       done();
     });
 
@@ -28,7 +28,24 @@ suite('redirect', function () {
       assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000
-      })).is.undefined();
+      })).is.null();
+      done();
+    });
+
+    test('for the forced domain with the correct port.', function (done) {
+      assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
+        hostname: 'www.thenativeweb.io',
+        port: 4000
+      })).is.null();
+      done();
+    });
+
+    test('when non-www is preferred.', function (done) {
+      assert.that(redirect('https', 'thenativeweb.io', '/foo/bar', {
+        hostname: 'thenativeweb.io',
+        protocol: 'https',
+        type: 'permanent'
+      })).is.null();
       done();
     });
   });
@@ -68,7 +85,7 @@ suite('redirect', function () {
     });
   });
 
-  suite('returns a permanent redirect', function () {
+  suite('returns a permanent redirect.', function () {
     test('for the forced domain with another port.', function (done) {
       assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
@@ -101,6 +118,18 @@ suite('redirect', function () {
       })).is.equalTo({
         type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
+      });
+      done();
+    });
+
+    test('when non-www is preferred.', function (done) {
+      assert.that(redirect('https', 'www.thenativeweb.io', '/foo/bar', {
+        hostname: 'thenativeweb.io',
+        protocol: 'https',
+        type: 'permanent'
+      })).is.equalTo({
+        type: 'permanent',
+        url: 'https://thenativeweb.io/foo/bar'
       });
       done();
     });
