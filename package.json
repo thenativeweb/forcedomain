@@ -8,6 +8,10 @@
       "email": "golo.roden@thenativeweb.io"
     },
     {
+      "name": "Matthias Wagler",
+      "email": "matthias.wagler@thenativeweb.io"
+    },
+    {
       "name": "David Bohner",
       "email": "david.bohner@gmail.com"
     },
@@ -30,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/goloroden/forcedomain.git"
+    "url": "git://github.com/thenativeweb/forcedomain.git"
   },
   "scripts": {
     "test": "grunt test"
