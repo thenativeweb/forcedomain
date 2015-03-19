@@ -1,7 +1,7 @@
 {
-  "name": "node-force-domain",
+  "name": "forcedomain",
   "version": "0.2.0",
-  "description": "node-force-domain is a middleware for Connect and Epxpress that redirects any requests to a default domain.",
+  "description": "forcedomain is a middleware for Connect and Epxpress that redirects any requests to a default domain.",
   "contributors": [
     {
       "name": "Golo Roden",
@@ -12,21 +12,27 @@
       "email": "david.bohner@gmail.com"
     }
   ],
-  "main": "lib/node-force-domain.js",
+  "main": "lib/forceDomain.js",
   "dependencies": {
-    "lodash": "3.3.0"
+    "lodash": "3.5.0"
   },
   "devDependencies": {
-    "assertthat": "0.5.1",
+    "assertthat": "0.5.3",
     "cases": "0.1.1",
-    "express": "4.11.2",
+    "express": "4.12.3",
     "grunt": "0.4.5",
     "supertest": "0.15.0",
-    "tourism": "0.13.2"
+    "tourism": "0.16.1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/goloroden/node-force-domain.git"
+    "url": "git://github.com/goloroden/forcedomain.git"
   },
+  "keywords": [
+    "connect",
+    "express",
+    "middleware",
+    "redirect"
+  ],
   "license": "MIT"
 }

@@ -1,17 +1,17 @@
-# node-force-domain
+# forcedomain
 
-node-force-domain is a middleware for Connect and Epxpress that redirects any request to a default domain.
+forcedomain is a middleware for Connect and Epxpress that redirects any request to a default domain.
 
 ## Installation
 
-    $ npm install node-force-domain
+    $ npm install forcedomain
 
 ## Quick start
 
-The first thing you need to do is to integrate node-force-domain into your application. For that add a reference to the `node-force-domain` module.
+The first thing you need to do is to integrate forcedomain into your application. For that add a reference to the `forcedomain` module.
 
 ```javascript
-var forceDomain = require('node-force-domain');
+var forceDomain = require('forcedomain');
 ```
 
 If you now want to redirect your requests to a specific host, include the middleware and configure it accordingly:
@@ -32,7 +32,7 @@ app.use(forceDomain({
 }));
 ```
 
-By default, node-force-domain creates a `temporary` request. If you want to use a `permanent` redirect instead, specify it as redirection type:
+By default, forcedomain creates a `temporary` request. If you want to use a `permanent` redirect instead, specify it as redirection type:
 
 ```javascript
 app.use(forceDomain({
@@ -58,7 +58,7 @@ If you are running your web application behind a reverse proxy such as Nginx, yo
 
 ## Running the build
 
-This module can be built using [Grunt](http://gruntjs.com/). Besides running the tests, this also analyses the code. To run Grunt, go to the folder where you have installed node-force-domain and run `grunt`. You need to have [grunt-cli](https://github.com/gruntjs/grunt-cli) installed.
+This module can be built using [Grunt](http://gruntjs.com/). Besides running the tests, this also analyses the code. To run Grunt, go to the folder where you have installed forcedomain and run `grunt`. You need to have [grunt-cli](https://github.com/gruntjs/grunt-cli) installed.
 
     $ grunt
 

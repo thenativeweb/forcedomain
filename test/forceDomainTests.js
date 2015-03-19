@@ -8,9 +8,9 @@ var assert = require('assertthat'),
     express = require('express'),
     request = require('supertest');
 
-var forceDomain = require('../lib/node-force-domain');
+var forceDomain = require('../lib/forceDomain');
 
-suite('node-force-domain', function () {
+suite('forceDomain', function () {
   suite('hostname only', function () {
     var app = express();
 
