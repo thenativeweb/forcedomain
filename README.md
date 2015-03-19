@@ -1,6 +1,6 @@
 # forcedomain
 
-forcedomain is a middleware for Connect and Epxpress that redirects any request to a default domain.
+forcedomain is a middleware for Connect and Express that redirects any request to a default domain.
 
 ## Installation
 
