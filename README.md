@@ -32,12 +32,12 @@ app.use(forceDomain({
 }));
 ```
 
-By default, forcedomain creates a `temporary` request. If you want to use a `permanent` redirect instead, specify it as redirection type:
+By default, forcedomain creates a `permanent` request - using a permanent redirect is generally considered better for Search Engine Optimisation as it tells search Googlebot / Bingbot etc. that there is a single, long term canonical URL for the resource. If you want to use a `temporary` redirect instead, specify it as redirection type:
 
 ```javascript
 app.use(forceDomain({
   hostname: 'www.example.com',
-  type: 'permanent'
+  type: 'temporary'
 }));
 ```
 
