@@ -31,6 +31,23 @@ suite('redirect', function () {
       })).is.null();
       done();
     });
+
+    test('for the forced domain with the correct port.', function (done) {
+      assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
+        hostname: 'www.thenativeweb.io',
+        port: 4000
+      })).is.null();
+      done();
+    });
+
+    test('when non-www is preferred', function (done) {
+      assert.that(redirect('https', 'thenativeweb.io', '/foo/bar', {
+        hostname: 'thenativeweb.io',
+        protocol: 'https',
+        type: 'permanent'
+      })).is.null();
+      done();
+    });
   });
 
   suite('returns a temporary redirect', function () {
@@ -101,6 +118,18 @@ suite('redirect', function () {
       })).is.equalTo({
         type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
+      });
+      done();
+    });
+
+    test('when non-www is preferred', function (done) {
+      assert.that(redirect('https', 'www.thenativeweb.io', '/foo/bar', {
+        hostname: 'thenativeweb.io',
+        protocol: 'https',
+        type: 'permanent'
+      })).is.equalTo({
+        type: 'permanent',
+        url: 'https://thenativeweb.io/foo/bar'
       });
       done();
     });
