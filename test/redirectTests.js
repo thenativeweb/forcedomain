@@ -5,13 +5,13 @@ var assert = require('assertthat');
 var redirect = require('../lib/redirect');
 
 suite('redirect', function () {
-  suite('returns undefined', function () {
+  suite('returns null', function () {
     test('for localhost.', function (done) {
       assert.that(redirect('http', 'localhost', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         port: 4000
-      })).is.undefined();
+      })).is.null();
       done();
     });
 
@@ -20,7 +20,7 @@ suite('redirect', function () {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         port: 4000
-      })).is.undefined();
+      })).is.null();
       done();
     });
 
@@ -28,7 +28,7 @@ suite('redirect', function () {
       assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000
-      })).is.undefined();
+      })).is.null();
       done();
     });
   });
