@@ -1,7 +1,7 @@
 {
   "name": "forcedomain",
   "version": "0.3.0",
-  "description": "forcedomain is a middleware for Connect and Epxpress that redirects any requests to a default domain.",
+  "description": "forcedomain is a middleware for Connect and Express that redirects any requests to a default domain.",
   "contributors": [
     {
       "name": "Golo Roden",
@@ -10,6 +10,10 @@
     {
       "name": "David Bohner",
       "email": "david.bohner@gmail.com"
+    },
+    {
+      "name": "Mike MacCana",
+      "email": "mike.maccana@gmail.com"
     }
   ],
   "main": "lib/forceDomain.js",
