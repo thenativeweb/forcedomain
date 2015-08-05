@@ -298,7 +298,6 @@ suite('forceDomain', function () {
     });
   });
 
-
   suite('hostname and x-forwarded-proto header', function () {
     var app = express();
 
@@ -388,9 +387,8 @@ suite('forceDomain', function () {
           res.resume();
           done();
         });
-    });  
+    });
   });
-
 
   suite('permanent redirects', function () {
     var app = express();
