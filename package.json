@@ -22,15 +22,15 @@
   ],
   "main": "lib/forceDomain.js",
   "dependencies": {
-    "lodash": "3.5.0"
+    "lodash": "3.10.1"
   },
   "devDependencies": {
-    "assertthat": "0.5.3",
+    "assertthat": "0.6.0",
     "cases": "0.1.1",
-    "express": "4.12.3",
+    "express": "4.13.3",
     "grunt": "0.4.5",
-    "supertest": "0.15.0",
-    "tourism": "0.16.1"
+    "supertest": "1.0.1",
+    "tourism": "0.21.0"
   },
   "repository": {
     "type": "git",
