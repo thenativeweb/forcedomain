@@ -298,6 +298,98 @@ suite('forceDomain', function () {
     });
   });
 
+  suite('hostname and x-forwarded-proto header', function () {
+    var app = express();
+
+    app.use(forceDomain({
+      hostname: 'www.example.com',
+      protocol: 'https'
+    }));
+
+    app.get('/', function (req, res) {
+      res.sendStatus(200);
+    });
+
+    test('does not redirect on localhost.', function (done) {
+      request(app)
+        .get('/')
+        .set('host', 'localhost:3000')
+        .end(function (err, res) {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('redirects on correct host and port, but other protocol.', function (done) {
+      request(app)
+        .get('/')
+        .set('x-forwarded-proto', 'https')
+        .set('host', 'www.example.com:4000')
+        .end(function (err, res) {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(res.header.location).is.equalTo('https://www.example.com:4000/');
+          res.resume();
+          done();
+        });
+    });
+
+    test('redirects temporarily on correct host, but other protocol.', function (done) {
+      request(app)
+        .get('/')
+        .set('host', 'www.example.com')
+        .end(function (err, res) {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(res.header.location).is.equalTo('https://www.example.com/');
+          res.resume();
+          done();
+        });
+    });
+
+    test('redirects temporarily on any other host, other protocol.', function (done) {
+      request(app)
+        .get('/')
+        .set('host', 'www.thenativeweb.io')
+        .end(function (err, res) {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(res.header.location).is.equalTo('https://www.example.com/');
+          res.resume();
+          done();
+        });
+    });
+
+    test('redirects temporarily on any other host, same protocol.', function (done) {
+      request(app)
+        .get('/')
+        .set('x-forwarded-proto', 'https')
+        .set('host', 'www.thenativeweb.io')
+        .end(function (err, res) {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(res.header.location).is.equalTo('https://www.example.com/');
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on correct protocol and host.', function (done) {
+      request(app)
+        .get('/')
+        .set('x-forwarded-proto', 'https')
+        .set('host', 'www.example.com')
+        .end(function (err, res) {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+  });
+
   suite('permanent redirects', function () {
     var app = express();
 
