@@ -18,6 +18,10 @@
     {
       "name": "Mike MacCana",
       "email": "mike.maccana@gmail.com"
+    },
+    {
+      "name": "Jelle Kralt",
+      "email": "jelle@jellekralt.nl"
     }
   ],
   "main": "lib/forceDomain.js",
