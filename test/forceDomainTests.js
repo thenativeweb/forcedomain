@@ -46,13 +46,13 @@ suite('forceDomain', function () {
         });
     });
 
-    test('redirects temporarily on any other host.', function (done) {
+    test('redirects permanently on any other host.', function (done) {
       request(app).
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('http://www.example.com/');
           res.resume();
           done();
@@ -96,26 +96,26 @@ suite('forceDomain', function () {
         });
     });
 
-    test('redirects temporarily on correct host, but other port.', function (done) {
+    test('redirects permanently on correct host, but other port.', function (done) {
       request(app).
         get('/').
         set('host', 'www.example.com:3000').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('http://www.example.com:4000/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on any other host.', function (done) {
+    test('redirects permanently on any other host.', function (done) {
       request(app).
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('http://www.example.com:4000/');
           res.resume();
           done();
@@ -163,47 +163,47 @@ suite('forceDomain', function () {
         get('/').
         set('host', 'www.example.com:4000').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com:4000/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on correct host, but other protocol.', function (done) {
+    test('redirects permanently on correct host, but other protocol.', function (done) {
       request(app).
         get('/').
         set('host', 'www.example.com').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on any other host, other protocol.', function (done) {
+    test('redirects permanently on any other host, other protocol.', function (done) {
       request(app).
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on any other host, same protocol.', function (done) {
+    test('redirects permanently on any other host, same protocol.', function (done) {
       request(appHttps).
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com/');
           res.resume();
           done();
@@ -271,26 +271,26 @@ suite('forceDomain', function () {
         });
     });
 
-    test('redirects temporarily on correct host, but other port.', function (done) {
+    test('redirects permanently on correct host, but other port.', function (done) {
       request(appHttps).
         get('/').
         set('host', 'www.example.com:3000').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com:4000/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on any other host.', function (done) {
+    test('redirects permanently on any other host.', function (done) {
       request(appHttps).
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com:4000/');
           res.resume();
           done();
@@ -328,48 +328,48 @@ suite('forceDomain', function () {
         set('x-forwarded-proto', 'https').
         set('host', 'www.example.com:4000').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com:4000/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on correct host, but other protocol.', function (done) {
+    test('redirects permanently on correct host, but other protocol.', function (done) {
       request(app).
         get('/').
         set('host', 'www.example.com').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on any other host, other protocol.', function (done) {
+    test('redirects permanently on any other host, other protocol.', function (done) {
       request(app).
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com/');
           res.resume();
           done();
         });
     });
 
-    test('redirects temporarily on any other host, same protocol.', function (done) {
+    test('redirects permanently on any other host, same protocol.', function (done) {
       request(app).
         get('/').
         set('x-forwarded-proto', 'https').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(307);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
           assert.that(res.header.location).is.equalTo('https://www.example.com/');
           res.resume();
           done();
@@ -390,12 +390,12 @@ suite('forceDomain', function () {
     });
   });
 
-  suite('permanent redirects', function () {
+  suite('temporary redirects', function () {
     var app = express();
 
     app.use(forceDomain({
       hostname: 'www.example.com',
-      type: 'permanent'
+      type: 'temporary'
     }));
 
     app.get('/', function (req, res) {
@@ -431,8 +431,8 @@ suite('forceDomain', function () {
         get('/').
         set('host', 'www.thenativeweb.io').
         end(function (err, res) {
-          assert.that(err).is.not.null();
-          assert.that(res.statusCode).is.equalTo(301);
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(307);
           assert.that(res.header.location).is.equalTo('http://www.example.com/');
           res.resume();
           done();
