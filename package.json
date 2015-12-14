@@ -22,6 +22,10 @@
     {
       "name": "Jelle Kralt",
       "email": "jelle@jellekralt.nl"
+    },
+    {
+      "name": "Pierre de la Martinière",
+      "email": "pierre.de.la.martiniere@gmail.com"
     }
   ],
   "main": "lib/forceDomain.js",

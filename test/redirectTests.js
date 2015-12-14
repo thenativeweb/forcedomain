@@ -56,7 +56,7 @@ suite('redirect', function () {
         hostname: 'www.thenativeweb.io',
         port: 4000
       })).is.equalTo({
-        type: 'temporary',
+        type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
       });
       done();
@@ -67,7 +67,7 @@ suite('redirect', function () {
         hostname: 'www.thenativeweb.io',
         port: 4000
       })).is.equalTo({
-        type: 'temporary',
+        type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
       });
       done();
@@ -78,7 +78,7 @@ suite('redirect', function () {
         hostname: 'www.thenativeweb.io',
         port: 4000
       })).is.equalTo({
-        type: 'temporary',
+        type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
       });
       done();
@@ -90,9 +90,9 @@ suite('redirect', function () {
       assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000,
-        type: 'permanent'
+        type: 'temporary'
       })).is.equalTo({
-        type: 'permanent',
+        type: 'temporary',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
       });
       done();
@@ -102,9 +102,9 @@ suite('redirect', function () {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000,
-        type: 'permanent'
+        type: 'temporary'
       })).is.equalTo({
-        type: 'permanent',
+        type: 'temporary',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
       });
       done();
@@ -114,9 +114,9 @@ suite('redirect', function () {
       assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         port: 4000,
-        type: 'permanent'
+        type: 'temporary'
       })).is.equalTo({
-        type: 'permanent',
+        type: 'temporary',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
       });
       done();
@@ -126,9 +126,9 @@ suite('redirect', function () {
       assert.that(redirect('https', 'www.thenativeweb.io', '/foo/bar', {
         hostname: 'thenativeweb.io',
         protocol: 'https',
-        type: 'permanent'
+        type: 'temporary'
       })).is.equalTo({
-        type: 'permanent',
+        type: 'temporary',
         url: 'https://thenativeweb.io/foo/bar'
       });
       done();
