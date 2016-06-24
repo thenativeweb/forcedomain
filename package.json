@@ -26,6 +26,10 @@
     {
       "name": "Pierre de la Martinière",
       "email": "pierre.de.la.martiniere@gmail.com"
+    },
+    {
+      "name": "Hüseyin Uslu",
+      "email": "shalafiraistlin@gmail.com"
     }
   ],
   "main": "lib/forceDomain.js",
