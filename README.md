@@ -4,14 +4,16 @@ forcedomain is a middleware for Connect and Express that redirects any request t
 
 ## Installation
 
-    $ npm install forcedomain
+```bash
+$ npm install forcedomain
+```
 
 ## Quick start
 
 The first thing you need to do is to integrate forcedomain into your application. For that add a reference to the `forcedomain` module.
 
 ```javascript
-var forceDomain = require('forcedomain');
+const forceDomain = require('forcedomain');
 ```
 
 If you now want to redirect your requests to a specific host, include the middleware and configure it accordingly.
@@ -49,25 +51,29 @@ app.use(forceDomain({
 
 If you are running your web application behind a reverse proxy such as Nginx, you have to forward the originally requested host.
 
-    server {
-      // ...
+```
+server {
+  // ...
 
-      location / {
-        proxy_pass http://localhost:3000;
-        proxy_set_header Host $http_host;
-      }
-    }
+  location / {
+    proxy_pass http://localhost:3000;
+    proxy_set_header Host $http_host;
+  }
+}
+```
 
 ## Running the build
 
-This module can be built using [Grunt](http://gruntjs.com/). Besides running the tests, this also analyses the code. To run Grunt, go to the folder where you have installed forcedomain and run `grunt`. You need to have [grunt-cli](https://github.com/gruntjs/grunt-cli) installed.
+To build this module use [roboter](https://www.npmjs.com/package/roboter).
 
-    $ grunt
+```bash
+$ bot build-server
+```
 
 ## License
 
 The MIT License (MIT)
-Copyright (c) 2013-2015 the native web.
+Copyright (c) 2013-2016 the native web.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

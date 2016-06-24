@@ -30,22 +30,18 @@
   ],
   "main": "lib/forceDomain.js",
   "dependencies": {
-    "lodash": "3.10.1"
+    "lodash": "4.13.1"
   },
   "devDependencies": {
-    "assertthat": "0.6.0",
+    "assertthat": "0.7.0",
     "cases": "0.1.1",
-    "express": "4.13.3",
-    "grunt": "0.4.5",
-    "supertest": "1.1.0",
-    "tourism": "0.21.0"
+    "express": "4.14.0",
+    "roboter": "0.11.1",
+    "supertest": "1.2.0"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/thenativeweb/forcedomain.git"
-  },
-  "scripts": {
-    "test": "grunt test"
   },
   "keywords": [
     "connect",
