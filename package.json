@@ -34,14 +34,15 @@
   ],
   "main": "lib/forceDomain.js",
   "dependencies": {
-    "lodash": "4.13.1"
+    "lodash": "4.16.3"
   },
   "devDependencies": {
-    "assertthat": "0.7.0",
+    "assertthat": "0.8.0",
     "cases": "0.1.1",
     "express": "4.14.0",
-    "roboter": "0.11.1",
-    "supertest": "1.2.0"
+    "roboter": "0.13.5",
+    "roboter-server": "0.13.5",
+    "supertest": "2.0.1"
   },
   "repository": {
     "type": "git",
