@@ -31,6 +31,31 @@ suite('redirect', () => {
       done();
     });
 
+    test('for 192.168.x.x.', done => {
+      assert.that(redirect('http', '192.168.0.1', '/foo/bar', {
+        protocol: 'https',
+        hostname: 'www.thenativeweb.io',
+        port: 3000
+      })).is.null();
+      done();
+    });
+
+    test('for 192.168.x.x:3000.', done => {
+      assert.that(redirect('http', '192.168.0.1:3000', '/foo/bar', {
+        protocol: 'https',
+        hostname: 'www.thenativeweb.io',
+        port: 3000
+      })).is.null();
+      done();
+    });
+
+    test('for https 192.168.x.x:3000.', done => {
+      assert.that(redirect('https', '192.168.0.1:3000', '/foo/bar', {
+        hostname: 'www.thenativeweb.io'
+      })).is.null();
+      done();
+    });
+
     test('for the forced domain with the correct port.', done => {
       assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',

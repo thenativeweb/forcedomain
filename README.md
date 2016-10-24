@@ -45,7 +45,7 @@ app.use(forceDomain({
 }));
 ```
 
-*Please note that `localhost` is always being excluded from redirection. Hence you can continue developing locally as you are used to.*
+*Please note that `localhost` and local IPs (`192.168.x.x`) are always being excluded from redirection. Hence you can continue developing locally as you are used to.*
 
 ### Using a reverse-proxy
 
