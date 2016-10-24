@@ -39,14 +39,6 @@ suite('redirect', () => {
       done();
     });
 
-    test('for the forced domain with the correct port.', done => {
-      assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
-        hostname: 'www.thenativeweb.io',
-        port: 4000
-      })).is.null();
-      done();
-    });
-
     test('when non-www is preferred.', done => {
       assert.that(redirect('https', 'thenativeweb.io', '/foo/bar', {
         hostname: 'thenativeweb.io',
