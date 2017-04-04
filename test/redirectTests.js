@@ -40,6 +40,25 @@ suite('redirect', () => {
       done();
     });
 
+    test('for 127.0.0.1.', done => {
+      assert.that(redirect('http', '127.0.0.1', '/foo/bar', {
+        protocol: 'https',
+        hostname: 'www.thenativeweb.io',
+        port: 3000
+      })).is.null();
+      done();
+    });
+
+    test('for https 127.0.0.1.', done => {
+      assert.that(redirect('https', '127.0.0.1', '/foo/bar', {
+        protocol: 'https',
+        hostname: 'www.thenativeweb.io',
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        port: 3000
+      })).is.null();
+      done();
+    });
+
     test('for 192.168.x.x:3000.', done => {
       assert.that(redirect('http', '192.168.0.1:3000', '/foo/bar', {
         protocol: 'https',

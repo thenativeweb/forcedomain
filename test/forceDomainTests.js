@@ -47,6 +47,18 @@ suite('forceDomain', () => {
         });
     });
 
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
     test('does not redirect on correct host.', done => {
       request(app).
         get('/').
@@ -113,6 +125,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
@@ -200,6 +224,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
@@ -322,6 +358,18 @@ suite('forceDomain', () => {
         });
     });
 
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
     test('does not redirect on correct host and port.', done => {
       request(appHttps).
         get('/').
@@ -389,6 +437,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
@@ -493,6 +553,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
