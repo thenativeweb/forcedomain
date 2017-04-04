@@ -44,6 +44,7 @@ suite('redirect', () => {
       assert.that(redirect('http', '192.168.0.1:3000', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
         port: 3000
       })).is.null();
       done();
@@ -52,6 +53,16 @@ suite('redirect', () => {
     test('for https 192.168.x.x:3000.', done => {
       assert.that(redirect('https', '192.168.0.1:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io'
+      })).is.null();
+      done();
+    });
+
+    test('for excluded hostname.', done => {
+      assert.that(redirect('http', 'app.example2.com', '/foo/bar', {
+        protocol: 'https',
+        hostname: 'www.thenativeweb.io',
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        port: 4000
       })).is.null();
       done();
     });
@@ -100,6 +111,7 @@ suite('redirect', () => {
     test('for another domain with another port.', done => {
       assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
         port: 4000
       })).is.equalTo({
         type: 'permanent',
@@ -122,6 +134,7 @@ suite('redirect', () => {
     test('for another domain with the another protocol.', done => {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
         protocol: 'https'
       })).is.equalTo({
         type: 'permanent',
@@ -194,6 +207,7 @@ suite('redirect', () => {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         protocol: 'https',
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
         type: 'temporary'
       })).is.equalTo({
         type: 'temporary',

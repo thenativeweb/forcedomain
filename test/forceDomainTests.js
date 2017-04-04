@@ -15,7 +15,8 @@ suite('forceDomain', () => {
     const app = express();
 
     app.use(forceDomain({
-      hostname: 'www.example.com'
+      hostname: 'www.example.com',
+      excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i
     }));
 
     app.get('/', (req, res) => {
@@ -56,6 +57,18 @@ suite('forceDomain', () => {
           res.resume();
           done();
         });
+    });
+
+    test('does not redirect on excluded host.', done => {
+      request(app).
+      get('/').
+      set('host', 'app.example2.com').
+      end((err, res) => {
+        assert.that(err).is.null();
+        assert.that(res.statusCode).is.equalTo(200);
+        res.resume();
+        done();
+      });
     });
 
     test('redirects permanently on any other host.', done => {
