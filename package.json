@@ -30,6 +30,10 @@
     {
       "name": "Hüseyin Uslu",
       "email": "shalafiraistlin@gmail.com"
+    },
+    {
+      "name": "Yegor Tokmakov",
+      "email": "yegor@tokmakov.biz"
     }
   ],
   "main": "lib/forceDomain.js",
