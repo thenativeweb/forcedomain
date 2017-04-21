@@ -36,17 +36,17 @@
       "email": "yegor@tokmakov.biz"
     }
   ],
-  "main": "lib/forceDomain.js",
+  "main": "dist/forceDomain.js",
   "dependencies": {
-    "lodash": "4.16.3"
+    "lodash": "4.17.4"
   },
   "devDependencies": {
-    "assertthat": "0.8.0",
+    "assertthat": "0.8.5",
     "cases": "0.1.1",
-    "express": "4.14.0",
-    "roboter": "0.13.5",
-    "roboter-server": "0.13.5",
-    "supertest": "2.0.1"
+    "express": "4.15.2",
+    "roboter": "0.15.1",
+    "roboter-server": "0.15.1",
+    "supertest": "3.0.0"
   },
   "repository": {
     "type": "git",
