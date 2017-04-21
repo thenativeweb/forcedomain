@@ -45,7 +45,16 @@ app.use(forceDomain({
 }));
 ```
 
-*Please note that `localhost` and local IPs (`192.168.x.x`) are always being excluded from redirection. Hence you can continue developing locally as you are used to.*
+You can use `excludeRule` to disable redirect based on a regular expression.
+
+```javascript
+app.use(forceDomain({
+  hostname: 'www.example.com',
+  excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.herokuapp\.com/i
+}));
+```
+
+*Please note that `localhost` and local IPs (`127.0.0.1`, `192.168.x.x`) are always being excluded from redirection. Hence you can continue developing locally as you are used to.*
 
 ### Using a reverse-proxy
 

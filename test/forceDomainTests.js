@@ -15,7 +15,8 @@ suite('forceDomain', () => {
     const app = express();
 
     app.use(forceDomain({
-      hostname: 'www.example.com'
+      hostname: 'www.example.com',
+      excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i
     }));
 
     app.get('/', (req, res) => {
@@ -46,6 +47,18 @@ suite('forceDomain', () => {
         });
     });
 
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
     test('does not redirect on correct host.', done => {
       request(app).
         get('/').
@@ -56,6 +69,18 @@ suite('forceDomain', () => {
           res.resume();
           done();
         });
+    });
+
+    test('does not redirect on excluded host.', done => {
+      request(app).
+      get('/').
+      set('host', 'app.example2.com').
+      end((err, res) => {
+        assert.that(err).is.null();
+        assert.that(res.statusCode).is.equalTo(200);
+        res.resume();
+        done();
+      });
     });
 
     test('redirects permanently on any other host.', done => {
@@ -100,6 +125,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
@@ -187,6 +224,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
@@ -309,6 +358,18 @@ suite('forceDomain', () => {
         });
     });
 
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
     test('does not redirect on correct host and port.', done => {
       request(appHttps).
         get('/').
@@ -376,6 +437,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
@@ -480,6 +553,18 @@ suite('forceDomain', () => {
       request(app).
         get('/').
         set('host', '192.168.0.1:3000').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
+    });
+
+    test('does not redirect on 127.0.0.1.', done => {
+      request(app).
+        get('/').
+        set('host', '127.0.0.1:3000').
         end((err, res) => {
           assert.that(err).is.null();
           assert.that(res.statusCode).is.equalTo(200);
