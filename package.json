@@ -34,6 +34,10 @@
     {
       "name": "Yegor Tokmakov",
       "email": "yegor@tokmakov.biz"
+    },
+    {
+      "name":"veera venky",
+      "email": "veeravenky222@gmail.com"
     }
   ],
   "main": "dist/forceDomain.js",
