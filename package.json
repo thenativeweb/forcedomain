@@ -34,18 +34,22 @@
     {
       "name": "Yegor Tokmakov",
       "email": "yegor@tokmakov.biz"
+    },
+    {
+      "name":"Veera Venky",
+      "email": "veeravenky222@gmail.com"
     }
   ],
   "main": "dist/forceDomain.js",
   "dependencies": {
-    "lodash": "4.17.4"
+    "lodash": "4.17.5"
   },
   "devDependencies": {
-    "assertthat": "0.8.5",
-    "cases": "0.1.1",
-    "express": "4.15.2",
-    "roboter": "0.15.1",
-    "roboter-server": "0.15.1",
+    "assertthat": "1.0.0",
+    "cases": "1.0.0",
+    "express": "4.16.3",
+    "roboter": "0.15.4",
+    "roboter-server": "0.15.4",
     "supertest": "3.0.0"
   },
   "repository": {

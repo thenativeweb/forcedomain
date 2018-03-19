@@ -598,4 +598,43 @@ suite('forceDomain', () => {
         });
     });
   });
+
+  suite('host header port and options port ', () => {
+    const app = express();
+
+    app.use(forceDomain({
+      hostname: 'www.example.com',
+      port: 80
+    }));
+
+    app.get('/', (req, res) => {
+      res.sendStatus(200);
+    });
+
+    test('redirects permanently on any other host without port.', done => {
+      request(app).
+        get('/').
+        set('host', 'www.thenativeweb.io').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
+          assert.that(res.header.location).is.equalTo('http://www.example.com:80/');
+          res.resume();
+          done();
+        });
+    });
+
+    test('redirects permanently on any other host with port.', done => {
+      request(app).
+        get('/').
+        set('host', 'www.thenativeweb.io:80').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(301);
+          assert.that(res.header.location).is.equalTo('http://www.example.com:80/');
+          res.resume();
+          done();
+        });
+    });
+  });
 });
