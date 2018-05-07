@@ -36,13 +36,13 @@
       "email": "yegor@tokmakov.biz"
     },
     {
-      "name":"Veera Venky",
+      "name": "Veera Venky",
       "email": "veeravenky222@gmail.com"
     }
   ],
   "main": "dist/forceDomain.js",
   "dependencies": {
-    "lodash": "4.17.5"
+    "lodash": "4.17.10"
   },
   "devDependencies": {
     "assertthat": "1.0.0",
