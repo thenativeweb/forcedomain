@@ -1,6 +1,6 @@
 {
   "name": "forcedomain",
-  "version": "0.8.2",
+  "version": "0.8.1",
   "description": "forcedomain is a middleware for Connect and Express that redirects any requests to a default domain.",
   "contributors": [
     {
@@ -38,6 +38,10 @@
     {
       "name": "Veera Venky",
       "email": "veeravenky222@gmail.com"
+    },
+    {
+      "name": "Dan Ferro",
+      "email": "dlcerva@gmail.com"
     }
   ],
   "main": "dist/forceDomain.js",
