@@ -52,8 +52,7 @@
     "assertthat": "1.0.0",
     "cases": "1.0.0",
     "express": "4.16.3",
-    "roboter": "0.15.4",
-    "roboter-server": "0.15.4",
+    "roboter": "1.0.3",
     "supertest": "3.0.0"
   },
   "repository": {

@@ -3,7 +3,7 @@
 const assert = require('assertthat'),
       cases = require('cases');
 
-const rewrite = require('../lib/rewrite');
+const rewrite = require('../../src/rewrite');
 
 suite('rewrite', () => {
   suite('does not rewrite', () => {

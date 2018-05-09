@@ -8,7 +8,7 @@ const assert = require('assertthat'),
       express = require('express'),
       request = require('supertest');
 
-const forceDomain = require('../lib/forceDomain');
+const forceDomain = require('../../src/forceDomain');
 
 suite('forceDomain', () => {
   suite('hostname only', () => {
@@ -73,14 +73,14 @@ suite('forceDomain', () => {
 
     test('does not redirect on excluded host.', done => {
       request(app).
-      get('/').
-      set('host', 'app.example2.com').
-      end((err, res) => {
-        assert.that(err).is.null();
-        assert.that(res.statusCode).is.equalTo(200);
-        res.resume();
-        done();
-      });
+        get('/').
+        set('host', 'app.example2.com').
+        end((err, res) => {
+          assert.that(err).is.null();
+          assert.that(res.statusCode).is.equalTo(200);
+          res.resume();
+          done();
+        });
     });
 
     test('redirects permanently on any other host.', done => {
@@ -198,9 +198,9 @@ suite('forceDomain', () => {
 
     const appHttps = https.createServer({
       /* eslint-disable no-sync */
-      key: fs.readFileSync(path.join(__dirname, 'keys', 'privateKey.pem')),
-      cert: fs.readFileSync(path.join(__dirname, 'keys', 'certificate.pem')),
-      ca: [ fs.readFileSync(path.join(__dirname, 'keys', 'caCertificate.pem')) ]
+      key: fs.readFileSync(path.join(__dirname, '..', 'shared', 'keys', 'privateKey.pem')),
+      cert: fs.readFileSync(path.join(__dirname, '..', 'shared', 'keys', 'certificate.pem')),
+      ca: [ fs.readFileSync(path.join(__dirname, '..', 'shared', 'keys', 'caCertificate.pem')) ]
       /* eslint-enable no-sync */
     }, app);
 
@@ -324,9 +324,9 @@ suite('forceDomain', () => {
 
     const appHttps = https.createServer({
       /* eslint-disable no-sync */
-      key: fs.readFileSync(path.join(__dirname, 'keys', 'privateKey.pem')),
-      cert: fs.readFileSync(path.join(__dirname, 'keys', 'certificate.pem')),
-      ca: [ fs.readFileSync(path.join(__dirname, 'keys', 'caCertificate.pem')) ]
+      key: fs.readFileSync(path.join(__dirname, '..', 'shared', 'keys', 'privateKey.pem')),
+      cert: fs.readFileSync(path.join(__dirname, '..', 'shared', 'keys', 'certificate.pem')),
+      ca: [ fs.readFileSync(path.join(__dirname, '..', 'shared', 'keys', 'caCertificate.pem')) ]
       /* eslint-enable no-sync */
     }, app);
 

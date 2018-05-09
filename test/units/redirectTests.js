@@ -2,7 +2,7 @@
 
 const assert = require('assertthat');
 
-const redirect = require('../lib/redirect');
+const redirect = require('../../src/redirect');
 
 suite('redirect', () => {
   suite('returns null', () => {
