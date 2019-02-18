@@ -12,7 +12,6 @@ var forceDomain = function forceDomain(options) {
     }
 
     var statusCode = newRoute.type === 'temporary' ? 307 : 301;
-
     res.writeHead(statusCode, {
       Location: newRoute.url
     });
