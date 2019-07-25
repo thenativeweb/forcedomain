@@ -2,7 +2,7 @@
 
 const assert = require('assertthat');
 
-const redirect = require('../../src/redirect');
+const redirect = require('../../lib/redirect');
 
 suite('redirect', () => {
   suite('returns null', () => {
@@ -53,7 +53,7 @@ suite('redirect', () => {
       assert.that(redirect('https', '127.0.0.1', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
         port: 3000
       })).is.null();
       done();
@@ -63,7 +63,7 @@ suite('redirect', () => {
       assert.that(redirect('http', '192.168.0.1:3000', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
         port: 3000
       })).is.null();
       done();
@@ -80,7 +80,7 @@ suite('redirect', () => {
       assert.that(redirect('http', 'app.example2.com', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
         port: 4000
       })).is.null();
       done();
@@ -130,7 +130,7 @@ suite('redirect', () => {
     test('for another domain with another port.', done => {
       assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
         port: 4000
       })).is.equalTo({
         type: 'permanent',
@@ -153,7 +153,7 @@ suite('redirect', () => {
     test('for another domain with the another protocol.', done => {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
         protocol: 'https'
       })).is.equalTo({
         type: 'permanent',
@@ -173,7 +173,7 @@ suite('redirect', () => {
     });
   });
 
-  suite('returns a temporary redirect.', () => {
+  suite('returns a temporary redirect', () => {
     test('for the forced domain with another port.', done => {
       assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
@@ -226,7 +226,7 @@ suite('redirect', () => {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         protocol: 'https',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
         type: 'temporary'
       })).is.equalTo({
         type: 'temporary',

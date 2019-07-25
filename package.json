@@ -44,16 +44,16 @@
       "email": "dlcerva@gmail.com"
     }
   ],
-  "main": "dist/forceDomain.js",
+  "main": "lib/forceDomain.js",
   "dependencies": {
-    "lodash": "4.17.11"
+    "lodash": "4.17.15"
   },
   "devDependencies": {
-    "assertthat": "2.0.1",
+    "assertthat": "3.1.0",
     "cases": "1.0.0",
-    "express": "4.16.4",
-    "roboter": "3.0.4",
-    "supertest": "3.4.2"
+    "express": "4.17.1",
+    "roboter": "6.1.0",
+    "supertest": "4.0.2"
   },
   "repository": {
     "type": "git",

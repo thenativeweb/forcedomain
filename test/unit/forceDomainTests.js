@@ -8,7 +8,7 @@ const assert = require('assertthat'),
       express = require('express'),
       request = require('supertest');
 
-const forceDomain = require('../../src/forceDomain');
+const forceDomain = require('../../lib/forceDomain');
 
 suite('forceDomain', () => {
   suite('hostname only', () => {
@@ -16,7 +16,7 @@ suite('forceDomain', () => {
 
     app.use(forceDomain({
       hostname: 'www.example.com',
-      excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/i
+      excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu
     }));
 
     app.get('/', (req, res) => {
