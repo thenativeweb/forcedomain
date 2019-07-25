@@ -54,22 +54,20 @@ app.use(forceDomain({
 }));
 ```
 
-*Please note that `localhost` and local IPs (`127.0.0.1`, `192.168.x.x`) are always being excluded from redirection. Hence you can continue developing locally as you are used to.*
+_Please note that `localhost` and local IPs (`127.0.0.1`, `192.168.x.x`) are always being excluded from redirection. Hence you can continue developing locally as you are used to._
 
 ### Using a reverse-proxy
 
 If you are running your web application behind a reverse proxy such as Nginx, you have to forward the originally requested host.
 
-```
-server {
-  // ...
+    server {
+      // ...
 
-  location / {
-    proxy_pass http://localhost:3000;
-    proxy_set_header Host $http_host;
-  }
-}
-```
+      location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $http_host;
+      }
+    }
 
 ## Running the build
 
