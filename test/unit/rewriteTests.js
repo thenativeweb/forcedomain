@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assertthat'),
+const { assert } = require('assertthat'),
       cases = require('cases');
 
 const rewrite = require('../../lib/rewrite');

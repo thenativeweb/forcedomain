@@ -4,7 +4,7 @@ const fs = require('fs'),
       https = require('https'),
       path = require('path');
 
-const assert = require('assertthat'),
+const { assert } = require('assertthat'),
       express = require('express'),
       request = require('supertest');
 
