@@ -2,6 +2,16 @@
 
 forcedomain is a middleware for Connect and Express that redirects any request to a default domain, e.g. to redirect to either the www or the non-www version of a domain.
 
+## Status
+
+| Category         | Status                                                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Version          | [![npm](https://img.shields.io/npm/v/forcedomain)](https://www.npmjs.com/package/forcedomain)                                                      |
+| Dependencies     | ![David](https://img.shields.io/david/thenativeweb/forcedomain)                                                                                   |
+| Dev dependencies | ![David](https://img.shields.io/david/dev/thenativeweb/forcedomain)                                                                               |
+| Build            | ![GitHub Actions](https://github.com/thenativeweb/forcedomain/workflows/Release/badge.svg?branch=master) |
+| License          | ![GitHub](https://img.shields.io/github/license/thenativeweb/forcedomain)                                                                         |
+
 ## Installation
 
 ```shell
@@ -10,13 +20,19 @@ $ npm install forcedomain
 
 ## Quick start
 
-The first thing you need to do is to integrate forcedomain into your application. For that add a reference to the `forcedomain` module.
+The first thing you need to do is to integrate forcedomain into your application. For that add a reference to the `forcedomain` module:
 
 ```javascript
-const forceDomain = require('forcedomain');
+const { forceDomain } = require('forcedomain');
 ```
 
-If you now want to redirect your requests to a specific host, include the middleware and configure it accordingly.
+If you use TypeScript, use the following code instead:
+
+```typescript
+import { forcedomain } from 'forcedomain';
+```
+
+If you now want to redirect your requests to a specific host, include the middleware and configure it accordingly:
 
 ```javascript
 app.use(forceDomain({
@@ -24,7 +40,7 @@ app.use(forceDomain({
 }));
 ```
 
-Additionally, you can also specify a port and a target protocol.
+Additionally, you can also specify a port and a target protocol:
 
 ```javascript
 app.use(forceDomain({
@@ -36,7 +52,7 @@ app.use(forceDomain({
 
 By default, forcedomain redirects using `permanent` request. This is generally considered best practice with respect to SEO, as it tells search engines that there is a single long-term canonical address for a ressource.
 
-If you want to use a `temporary` redirect instead, specify it as redirection type.
+If you want to use a `temporary` redirect instead, specify it as redirection type:
 
 ```javascript
 app.use(forceDomain({
@@ -45,7 +61,7 @@ app.use(forceDomain({
 }));
 ```
 
-You can use `excludeRule` to disable redirect based on a regular expression.
+You can use `excludeRule` to disable redirect based on a regular expression:
 
 ```javascript
 app.use(forceDomain({
@@ -60,14 +76,16 @@ _Please note that `localhost` and local IPs (`127.0.0.1`, `192.168.x.x`) are alw
 
 If you are running your web application behind a reverse proxy such as Nginx, you have to forward the originally requested host.
 
-    server {
-      // ...
+```
+server {
+  // ...
 
-      location / {
-        proxy_pass http://localhost:3000;
-        proxy_set_header Host $http_host;
-      }
-    }
+  location / {
+    proxy_pass http://localhost:3000;
+    proxy_set_header Host $http_host;
+  }
+}
+```
 
 ## Running the build
 
@@ -76,14 +94,3 @@ To build this module use [roboter](https://www.npmjs.com/package/roboter).
 ```shell
 $ npx roboter
 ```
-
-## License
-
-The MIT License (MIT)
-Copyright (c) 2013-2020 the native web.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
