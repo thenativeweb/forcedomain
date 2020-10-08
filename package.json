@@ -44,16 +44,18 @@
       "email": "dlcerva@gmail.com"
     }
   ],
-  "main": "lib/forceDomain.js",
+  "main": "build/lib/forceDomain.js",
+  "types": "build/lib/forceDomain.d.ts",
   "dependencies": {
-    "lodash": "4.17.20"
+    "@types/express": "4.17.8",
+    "express": "4.17.1"
   },
   "devDependencies": {
+    "@types/supertest": "2.0.10",
     "assertthat": "5.2.1",
-    "cases": "1.0.0",
-    "express": "4.17.1",
-    "roboter": "11.2.25",
-    "supertest": "4.0.2"
+    "roboter": "11.3.14",
+    "semantic-release-configuration": "1.0.21",
+    "supertest": "5.0.0"
   },
   "repository": {
     "type": "git",
