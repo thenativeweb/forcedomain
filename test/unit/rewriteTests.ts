@@ -50,7 +50,7 @@ suite('rewrite', (): void => {
         [ 'https://www.thenativeweb.io/', 'https://www.thenativeweb.io:4000/' ]
       ]) {
         assert.that(rewrite(url, {
-          port: 4000
+          port: 4_000
         })).is.equalTo(expectedUrl);
       }
     });
@@ -59,7 +59,7 @@ suite('rewrite', (): void => {
       assert.that(rewrite('http://thenativeweb.io', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        port: 4000
+        port: 4_000
       })).is.equalTo('https://www.thenativeweb.io:4000/');
     });
   });

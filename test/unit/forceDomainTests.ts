@@ -89,7 +89,7 @@ suite('forceDomain', (): void => {
 
       app.use(forceDomain({
         hostname: 'www.example.com',
-        port: 4000
+        port: 4_000
       }));
 
       app.get('/', (req, res): void => {
@@ -266,7 +266,7 @@ suite('forceDomain', (): void => {
 
       app.use(forceDomain({
         hostname: 'www.example.com',
-        port: 4000,
+        port: 4_000,
         protocol: 'https'
       }));
 

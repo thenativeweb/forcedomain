@@ -7,7 +7,7 @@ suite('redirect', (): void => {
       assert.that(redirect('http', 'localhost', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        port: 4000
+        port: 4_000
       })).is.null();
     });
 
@@ -15,7 +15,7 @@ suite('redirect', (): void => {
       assert.that(redirect('http', 'localhost:3000', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        port: 4000
+        port: 4_000
       })).is.null();
     });
 
@@ -29,7 +29,7 @@ suite('redirect', (): void => {
       assert.that(redirect('http', '192.168.0.1', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        port: 3000
+        port: 3_000
       })).is.null();
     });
 
@@ -37,7 +37,7 @@ suite('redirect', (): void => {
       assert.that(redirect('http', '127.0.0.1', '/foo/bar', {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
-        port: 3000
+        port: 3_000
       })).is.null();
     });
 
@@ -46,7 +46,7 @@ suite('redirect', (): void => {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
-        port: 3000
+        port: 3_000
       })).is.null();
     });
 
@@ -55,7 +55,7 @@ suite('redirect', (): void => {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
-        port: 3000
+        port: 3_000
       })).is.null();
     });
 
@@ -70,14 +70,14 @@ suite('redirect', (): void => {
         protocol: 'https',
         hostname: 'www.thenativeweb.io',
         excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
-        port: 4000
+        port: 4_000
       })).is.null();
     });
 
     test('for the forced domain with the correct port.', async (): Promise<void> => {
       assert.that(redirect('http', 'www.thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        port: 4000
+        port: 4_000
       })).is.null();
     });
 
@@ -94,7 +94,7 @@ suite('redirect', (): void => {
     test('for the forced domain with another port.', async (): Promise<void> => {
       assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        port: 4000
+        port: 4_000
       })).is.equalTo({
         type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
@@ -104,7 +104,7 @@ suite('redirect', (): void => {
     test('for another domain with the correct port.', async (): Promise<void> => {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        port: 4000
+        port: 4_000
       })).is.equalTo({
         type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
@@ -115,7 +115,7 @@ suite('redirect', (): void => {
       assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
         excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.example2\.com/iu,
-        port: 4000
+        port: 4_000
       })).is.equalTo({
         type: 'permanent',
         url: 'http://www.thenativeweb.io:4000/foo/bar'
@@ -157,7 +157,7 @@ suite('redirect', (): void => {
     test('for the forced domain with another port.', async (): Promise<void> => {
       assert.that(redirect('http', 'www.thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        port: 4000,
+        port: 4_000,
         type: 'temporary'
       })).is.equalTo({
         type: 'temporary',
@@ -168,7 +168,7 @@ suite('redirect', (): void => {
     test('for another domain with the correct port.', async (): Promise<void> => {
       assert.that(redirect('http', 'thenativeweb.io:4000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        port: 4000,
+        port: 4_000,
         type: 'temporary'
       })).is.equalTo({
         type: 'temporary',
@@ -179,7 +179,7 @@ suite('redirect', (): void => {
     test('for another domain with another port.', async (): Promise<void> => {
       assert.that(redirect('http', 'thenativeweb.io:3000', '/foo/bar', {
         hostname: 'www.thenativeweb.io',
-        port: 4000,
+        port: 4_000,
         type: 'temporary'
       })).is.equalTo({
         type: 'temporary',
