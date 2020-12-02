@@ -6,4 +6,5 @@ export interface Options {
   port?: number;
   type?: RedirectType;
   excludeRule?: RegExp;
+  isEnabled?: boolean;
 }

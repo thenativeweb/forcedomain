@@ -532,4 +532,57 @@ suite('forceDomain', (): void => {
       res.resume();
     });
   });
+
+  suite('does not redirect', (): void => {
+    let app: Application;
+
+    suiteSetup(async (): Promise<void> => {
+      app = express();
+
+      app.use(forceDomain({
+        hostname: 'www.example.com',
+        isEnabled: false
+      }));
+
+      app.get('/', (req, res): void => {
+        res.sendStatus(200);
+      });
+    });
+
+    test('if isEnabled is false.', async (): Promise<void> => {
+      const res = await request(app).
+        get('/').
+        set('host', 'www.thenativeweb.io');
+
+      assert.that(res.status).is.equalTo(200);
+      res.resume();
+    });
+  });
+
+  suite('does redirect', (): void => {
+    let app: Application;
+
+    suiteSetup(async (): Promise<void> => {
+      app = express();
+
+      app.use(forceDomain({
+        hostname: 'www.example.com',
+        isEnabled: true
+      }));
+
+      app.get('/', (req, res): void => {
+        res.sendStatus(200);
+      });
+    });
+
+    test('if isEnabled is true.', async (): Promise<void> => {
+      const res = await request(app).
+        get('/').
+        set('host', 'www.thenativeweb.io');
+
+      assert.that(res.status).is.equalTo(301);
+      assert.that(res.header.location).is.equalTo('http://www.example.com/');
+      res.resume();
+    });
+  });
 });

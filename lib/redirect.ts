@@ -11,10 +11,11 @@ const redirect = function (protocol: string, hostHeader: string | undefined, url
   const hostname = hostHeaderParts[0] ?? '';
   const port = hostHeaderParts[1] ? Number(hostHeaderParts[1]) : undefined;
   const targetProtocol = options.protocol ?? protocol;
+  const isEnabled = options.isEnabled ?? true;
 
   if (
     (hostname === 'localhost' || hostname === '127.0.0.1') ||
-    hostname.startsWith('192.168.') ||
+    hostname.startsWith('192.168.') || !isEnabled ||
     (hostname === options.hostname && port === options.port && protocol === targetProtocol) ||
     (options.excludeRule && options.excludeRule.test(hostname))
   ) {
