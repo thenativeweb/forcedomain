@@ -70,6 +70,15 @@ app.use(forceDomain({
 }));
 ```
 
+You can use `isEnabled` to enable or disable redirection. Default value is `true`.
+
+```javascript
+app.use(forceDomain({
+  hostname: 'www.example.com',
+  isEnabled: false
+}));
+```
+
 _Please note that `localhost` and local IPs (`127.0.0.1`, `192.168.x.x`) are always being excluded from redirection. Hence you can continue developing locally as you are used to._
 
 ### Using a reverse-proxy
