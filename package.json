@@ -1,6 +1,6 @@
 {
   "name": "forcedomain",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "forcedomain is a middleware for Connect and Express that redirects any requests to a default domain.",
   "contributors": [
     {

@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/thenativeweb/forcedomain/compare/2.1.1...2.2.0) (2020-12-04)
+
+
+### Features
+
+* Add isEnabled option ([#76](https://github.com/thenativeweb/forcedomain/issues/76)) ([460a922](https://github.com/thenativeweb/forcedomain/commit/460a922010437aadfeb7b659710751f79675bd2f))
+
 ## [2.1.1](https://github.com/thenativeweb/forcedomain/compare/2.1.0...2.1.1) (2020-11-11)
 
 
