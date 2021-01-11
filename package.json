@@ -51,7 +51,7 @@
   "main": "build/lib/forceDomain.js",
   "types": "build/lib/forceDomain.d.ts",
   "dependencies": {
-    "@types/express": "4.17.9",
+    "@types/express": "4.17.10",
     "express": "4.17.1"
   },
   "devDependencies": {
