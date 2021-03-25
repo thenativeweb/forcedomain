@@ -57,7 +57,7 @@
   "devDependencies": {
     "@types/supertest": "2.0.10",
     "assertthat": "5.2.8",
-    "roboter": "11.6.32",
+    "roboter": "11.6.33",
     "semantic-release-configuration": "2.0.0",
     "supertest": "6.1.3"
   },
