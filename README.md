@@ -9,7 +9,7 @@ forcedomain is a middleware for Connect and Express that redirects any request t
 | Version          | [![npm](https://img.shields.io/npm/v/forcedomain)](https://www.npmjs.com/package/forcedomain)                                                      |
 | Dependencies     | ![David](https://img.shields.io/david/thenativeweb/forcedomain)                                                                                   |
 | Dev dependencies | ![David](https://img.shields.io/david/dev/thenativeweb/forcedomain)                                                                               |
-| Build            | ![GitHub Actions](https://github.com/thenativeweb/forcedomain/workflows/Release/badge.svg?branch=master) |
+| Build            | ![GitHub Actions](https://github.com/thenativeweb/forcedomain/workflows/Release/badge.svg?branch=main) |
 | License          | ![GitHub](https://img.shields.io/github/license/thenativeweb/forcedomain)                                                                         |
 
 ## Installation
