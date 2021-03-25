@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/thenativeweb/forcedomain/compare/2.2.2...2.2.3) (2021-03-25)
+
+
+### Bug Fixes
+
+* Migrate from master to main. ([#133](https://github.com/thenativeweb/forcedomain/issues/133)) ([0a48037](https://github.com/thenativeweb/forcedomain/commit/0a4803771b8caeb4ae6c333e5b88179b25a96239))
+
 ## [2.2.2](https://github.com/thenativeweb/forcedomain/compare/2.2.1...2.2.2) (2021-01-13)
 
 
