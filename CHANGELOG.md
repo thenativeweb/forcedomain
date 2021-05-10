@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/thenativeweb/forcedomain/compare/2.2.3...2.2.4) (2021-05-10)
+
+
+### Bug Fixes
+
+* bump hosted-git-info from 2.8.8 to 2.8.9 ([#150](https://github.com/thenativeweb/forcedomain/issues/150)) ([b91f01c](https://github.com/thenativeweb/forcedomain/commit/b91f01c2485def56fe684a382af35c48802b1b9b))
+
 ## [2.2.3](https://github.com/thenativeweb/forcedomain/compare/2.2.2...2.2.3) (2021-03-25)
 
 
