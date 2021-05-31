@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/thenativeweb/forcedomain/compare/2.2.4...2.2.5) (2021-05-31)
+
+
+### Bug Fixes
+
+* bump @types/express from 4.17.11 to 4.17.12 ([#156](https://github.com/thenativeweb/forcedomain/issues/156)) ([34de75a](https://github.com/thenativeweb/forcedomain/commit/34de75a557c967fea0914cb4ade1a9309a409d74))
+
 ## [2.2.4](https://github.com/thenativeweb/forcedomain/compare/2.2.3...2.2.4) (2021-05-10)
 
 
