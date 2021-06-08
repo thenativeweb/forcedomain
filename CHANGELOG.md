@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/thenativeweb/forcedomain/compare/2.2.6...2.2.7) (2021-06-08)
+
+
+### Bug Fixes
+
+* bump trim-newlines from 3.0.0 to 3.0.1 ([#161](https://github.com/thenativeweb/forcedomain/issues/161)) ([1722c00](https://github.com/thenativeweb/forcedomain/commit/1722c00bc68c87b283f4e54b1885e2c2f12dfd5a))
+
 ## [2.2.6](https://github.com/thenativeweb/forcedomain/compare/2.2.5...2.2.6) (2021-06-08)
 
 
