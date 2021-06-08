@@ -1,3 +1,10 @@
+## [2.2.6](https://github.com/thenativeweb/forcedomain/compare/2.2.5...2.2.6) (2021-06-08)
+
+
+### Bug Fixes
+
+* bump glob-parent from 5.1.1 to 5.1.2 ([#162](https://github.com/thenativeweb/forcedomain/issues/162)) ([47358fe](https://github.com/thenativeweb/forcedomain/commit/47358fed2d322a9dc9ae305639af02b3084bca63))
+
 ## [2.2.5](https://github.com/thenativeweb/forcedomain/compare/2.2.4...2.2.5) (2021-05-31)
 
 
