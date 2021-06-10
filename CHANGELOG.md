@@ -1,3 +1,10 @@
+## [2.2.8](https://github.com/thenativeweb/forcedomain/compare/2.2.7...2.2.8) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump normalize-url from 6.0.0 to 6.0.1 ([#163](https://github.com/thenativeweb/forcedomain/issues/163)) ([2ed044a](https://github.com/thenativeweb/forcedomain/commit/2ed044a6f90328180e22ee283561fa3a52406d75))
+
 ## [2.2.7](https://github.com/thenativeweb/forcedomain/compare/2.2.6...2.2.7) (2021-06-08)
 
 
