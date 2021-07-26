@@ -59,7 +59,7 @@
     "assertthat": "6.3.9",
     "roboter": "11.7.8",
     "semantic-release-configuration": "2.0.5",
-    "supertest": "6.1.3"
+    "supertest": "6.1.4"
   },
   "repository": {
     "type": "git",
