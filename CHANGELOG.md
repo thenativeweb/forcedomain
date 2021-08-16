@@ -1,3 +1,10 @@
+## [2.2.10](https://github.com/thenativeweb/forcedomain/compare/2.2.9...2.2.10) (2021-08-16)
+
+
+### Bug Fixes
+
+* bump path-parse from 1.0.6 to 1.0.7 ([#179](https://github.com/thenativeweb/forcedomain/issues/179)) ([33434a3](https://github.com/thenativeweb/forcedomain/commit/33434a3ac9e513d8e78713507b472636f7e14a46))
+
 ## [2.2.9](https://github.com/thenativeweb/forcedomain/compare/2.2.8...2.2.9) (2021-07-12)
 
 
