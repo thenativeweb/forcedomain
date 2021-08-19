@@ -48,8 +48,12 @@
       "email": "hello@davidangulo.xyz"
     }
   ],
+  "private": false,
   "main": "build/lib/forceDomain.js",
   "types": "build/lib/forceDomain.d.ts",
+  "engines": {
+    "node": ">= 16.7.0"
+  },
   "dependencies": {
     "@types/express": "4.17.13",
     "express": "4.17.1"
@@ -57,10 +61,11 @@
   "devDependencies": {
     "@types/supertest": "2.0.11",
     "assertthat": "6.3.12",
-    "roboter": "12.1.0",
+    "roboter": "12.1.1",
     "semantic-release-configuration": "2.0.5",
     "supertest": "6.1.5"
   },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/thenativeweb/forcedomain.git"
