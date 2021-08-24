@@ -1,3 +1,10 @@
+## [2.2.11](https://github.com/thenativeweb/forcedomain/compare/2.2.10...2.2.11) (2021-08-24)
+
+
+### Bug Fixes
+
+* remove engine constraint, add exclude to tsconfig.json ([#183](https://github.com/thenativeweb/forcedomain/issues/183)) ([fe3980a](https://github.com/thenativeweb/forcedomain/commit/fe3980a7524f6288e417234c21a70fe875a94de8))
+
 ## [2.2.10](https://github.com/thenativeweb/forcedomain/compare/2.2.9...2.2.10) (2021-08-16)
 
 
